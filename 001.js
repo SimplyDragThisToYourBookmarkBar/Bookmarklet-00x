@@ -1,10 +1,15 @@
-javascript:void((function(global){
+	if(eTagName in defaultStyles){
+			ds=defaultStyles[eTagName];
+		}else{
+			sandBox=sandBox||(sandBox=$body.appendChild($d.createElement('iframe')));
+			console.log(sandBox);
+		};
 
- var slice=Array.prototype.slice,
- $w=global, computedStyleOf=$w.getComputedStyle,
- $d=$w.document, $html=$d.documentElement, $body=$d.body,
- tags=[$html,$body].concat(slice.call($body.getElementsByTagName('*')));
+	};
+	if(sandBox){$body.removeChild(sandBox);}
+ };
 
- console.dir(tags);
+ console.log('usedTags',Object.keys(defaultStyles));
+ console.dir(defaultStyles);
 
 })(window));
